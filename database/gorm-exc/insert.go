@@ -35,9 +35,11 @@ func main() {
 		{ID: 12345, Name: "Anggiet", Address: "Tambun", Age: 24, Birthdate: "1998-11-01", Level: "Staff", ID_Departement: 54130},
 		{ID: 12345, Name: "John", Address: "Taman Galaxy", Age: 21, Birthdate: "2002-01-16", Level: "Supervisor", ID_Departement: 54147}}
 
-	kantor := [5]Departement{{ID: 12345}}
+	kantor := [5]Departement{{ID: 12345, Nama_Departement: "Marketing"}, {ID: 12346, Nama_Departement: "Production"}, {ID: 12347, Nama_Departement: "HRD"}, {ID: 12348, Nama_Departement: "IT"}, {ID: 12349, Nama_Departement: "Warehouse"}}
 
-	result := db.Create(pegawai)
+	result := db.Create(&pegawai)
+	hasil := db.Create(&kantor)
 
 	fmt.Println("Rows: ", result.RowsAffected)
+	fmt.Println("RowsHasil: ", hasil.RowsAffected)
 }
